@@ -1,0 +1,35 @@
+APP
+State
+    CurrentScore - Passed into Scoreboard & MainContent
+Scoreboard
+MainContent
+-------------------------------
+SCOREBOARD
+State
+    BestScore
+Functions
+    IsRecord() - Checks if updated score is the highest one and if so changes bestScore
+Current score
+Best score
+-------------------------------
+MAINCONTENT
+State
+    currentOptions - Stores IDs of possible imgs
+    clickedImagesArray - Stores IDs of clicked imgs
+Functions
+    setDefault() - Sets the default state of current options
+    pickRandom() - Picks random from currentOptions but removes the picked one from state so it cant be choosen again
+    generateField() - Fills the grid with cards -> Each one with their own ID so they can be tracked -> The ID should display an image set in CSS - Should call a function every time it places a new cell
+    check() - Gets triggered on click and checks if ID had already been pushed to array / Should also check if total imgs === clickedImagesArray and if so call win()
+    win() - Displays a winning message and a reset button
+    lose() - Changes CurrentScore state and restarts game
+Image display
+    grid
+    cards shoud have an event listener - onClick
+
+FLOW
+Scoreboard
+MainContent
+
+Components get mounted -> MainContent #Maybe store whole sequence in a single function ?# setDefault() generateField(pickRandom) -> card gets clicked -> check() into step 2 if not already clicked
+else lose() -> Update triggers Scoreboard isRecord() -> Scoreboard gets updated
