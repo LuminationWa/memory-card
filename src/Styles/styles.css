@@ -1,0 +1,65 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Playing field */
+
+#playing-field {
+  display: grid;
+  width: 300px;
+  grid-template-areas:
+    "0 1 2 3 4"
+    "5 6 7 8 9";
+  gap: 8px;
+}
+
+.card {
+  height: 50px;
+  width: 50px;
+}
+
+#card-01 {
+  background-color: red;
+}
+
+#card-1 {
+  background-color: blue;
+}
+
+#card-2 {
+  background-color: cyan;
+}
+
+#card-3 {
+  background-color: purple;
+}
+
+#card-4 {
+  background-color: violet;
+}
+
+#card-5 {
+  background-color: yellow;
+}
+
+#card-6 {
+  background-color: orange;
+}
+
+#card-7 {
+  background-color: black;
+}
+
+#card-8 {
+  background-color: white;
+}
+
+#card-9 {
+  background-color: magenta;
+}
