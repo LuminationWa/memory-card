@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Scoreboard currentScore={currentScore}/>
-      <PlayingField currentScore={currentScore}/>
+      <PlayingField setCurrentScore={setCurrentScore}/>
     </div>
   );
 }
