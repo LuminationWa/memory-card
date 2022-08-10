@@ -20,7 +20,6 @@ const PlayingField = (props) => {
     resetPlayingField();
     allCards = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     clickedCards = [];
-    playingField.textContent = "";
     props.setCurrentScore(0);   
   };
 
@@ -64,12 +63,15 @@ const PlayingField = (props) => {
   const generateCards = () => {
     let playingField = document.getElementById("playing-field");
     allCards.forEach((element, index) => {
+      // Places a card and then uses that position as grid-area
+      // The card class works as common styling and the id sets the specific background
       placeCard();
       let cardPlacement = usedSpots[usedSpots.length - 1];
       let card = document.createElement("button");
       card.classList.add(element, "card");
       card.id = "card-" + index;
       card.addEventListener("click", function () {
+        // When clicked checks for result and unless win() or lose() get triggered randomizes card placements again and game continues
         checkCards(index);
         makePlayingField();
       });
