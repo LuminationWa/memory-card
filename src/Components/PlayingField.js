@@ -14,19 +14,19 @@ const PlayingField = (props) => {
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  };
+  }
 
   const setDefault = () => {
     resetPlayingField();
-    allCards = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     clickedCards = [];
-    props.setCurrentScore(0);   
+    props.setCurrentScore(0);
+    makePlayingField();
   };
 
   const resetPlayingField = () => {
     let playingField = document.getElementById("playing-field");
     playingField.textContent = "";
-  }
+  };
 
   const placeCard = () => {
     let placement = getRandomInt(allCards.length);
@@ -34,30 +34,32 @@ const PlayingField = (props) => {
     else {
       usedSpots.push(placement);
       return placement;
-    };
+    }
   };
 
   const checkCards = (index) => {
     if (clickedCards.includes(index)) lose();
     else {
-        clickedCards.push(index);
-        updateScore();
-    };
+      clickedCards.push(index);
+      updateScore();
+    }
     if (clickedCards.length === allCards.length) win();
   };
 
   const win = () => {
-    console.log("win");
+    alert("win");
   };
 
   const lose = () => {
+    count = 0;
+    clickedCards = [];
     props.setCurrentScore(0);
-    console.log("lose");
   };
 
   const updateScore = () => {
     count++;
-    props.setCurrentScore(count);    
+    console.log(count);
+    props.setCurrentScore(count);
   };
 
   const generateCards = () => {
@@ -89,9 +91,13 @@ const PlayingField = (props) => {
   return (
     <div>
       <div id="playing-field"></div>
-      <button onClick={() => {
-        setDefault();
-        }}>Restart</button>
+      <button
+        onClick={() => {
+          setDefault();
+        }}
+      >
+        Restart
+      </button>
     </div>
   );
 };
